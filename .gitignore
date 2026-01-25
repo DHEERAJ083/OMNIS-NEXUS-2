@@ -1,1 +1,13 @@
-/.agent
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+.env
+.vscode/
+logs/
+temp_vision/
+.rollback/
+*.log
+*.png
+omnis_config.json

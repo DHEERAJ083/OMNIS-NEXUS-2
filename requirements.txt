@@ -1,0 +1,12 @@
+fastmcp
+psutil
+pyperclip
+pyautogui
+pygetwindow
+opencv-python
+Pillow
+plyer
+schedule
+SpeechRecognition
+pyttsx3
+pyaudio

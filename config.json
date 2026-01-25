@@ -1,0 +1,13 @@
+{
+    "mcpServers": {
+        "omnis-nexus": {
+            "command": "python",
+            "args": [
+                "C:\\Users\\HP\\.gemini\\antigravity\\scratch\\omnis_nexus\\omnis_nexus_server.py"
+            ],
+            "env": {
+                "PYTHONUNBUFFERED": "1"
+            }
+        }
+    }
+}
