@@ -8,38 +8,38 @@ This diagram illustrates how Omnis-Nexus fits into the broader ecosystem, bridgi
 
 ```mermaid
 graph TD
-    subgraph "User Layer"
-        User[User / Operator]
-        Voice[Mic / Voice Input]
+    subgraph UserLayer ["User Layer"]
+        User["User / Operator"]
+        Voice["Mic / Voice Input"]
     end
 
-    subgraph "Interface Layer"
-        Claude[Claude Desktop / LLM]
-        MCP[Omnis-Nexus MCP Server]
+    subgraph InterfaceLayer ["Interface Layer"]
+        Claude["Claude Desktop / LLM"]
+        MCP["Omnis-Nexus MCP Server"]
     end
 
-    subgraph "Core Logic (Omnis Nexus)"
-        Server[omnis_nexus_server.py]
-        Config[Config & Security<br/>(config.json / Env)]
+    subgraph CoreLogic ["Core Logic (Omnis Nexus)"]
+        Server["omnis_nexus_server.py"]
+        Config["Config & Security<br/>(config.json / Env)"]
         
-        subgraph "Expansion Pack"
-            NexusVoice[Nexus Voice Module]
-            Auto[Automation Routines]
-            Healer[Sentinel Healers]
+        subgraph ExpPack ["Expansion Pack"]
+            NexusVoice["Nexus Voice Module"]
+            Auto["Automation Routines"]
+            Healer["Sentinel Healers"]
         end
     end
 
-    subgraph "OS Abstraction Layer"
-        Shell[Shell / Terminal]
-        FS[File System]
-        Input[Mouse / Keyboard]
-        Vision[Screen Capture]
-        Proc[Process Manager]
+    subgraph OSLayer ["OS Abstraction Layer"]
+        Shell["Shell / Terminal"]
+        FS["File System"]
+        Input["Mouse / Keyboard"]
+        Vision["Screen Capture"]
+        Proc["Process Manager"]
     end
 
     %% Connections
     User -->|Text Prompts| Claude
-    User -->|Voice Commands "Nexus..."| Voice
+    User -->|Voice Commands 'Nexus...'| Voice
     Voice -->|Audio| NexusVoice
     
     Claude <-->|JSON-RPC 2.0| MCP
@@ -153,27 +153,27 @@ Block-level view of system modules, data flow, and control signals.
 graph TB
     subgraph Controls [Control Plane]
         direction LR
-        UI[User Interface<br/>(Claude Desktop)]
-        Voice[Voice Command<br/>(Microphone)]
+        UI["User Interface<br/>(Claude Desktop)"]
+        Voice["Voice Command<br/>(Microphone)"]
     end
 
     subgraph Core [Omnis-Nexus Core]
         direction TB
-        Server[MCP Server<br/>(Integration Layer)]
-        Validation[Security & Validation<br/>(Safe Zone)]
-        Router[Command Router]
+        Server["MCP Server<br/>(Integration Layer)"]
+        Validation["Security & Validation<br/>(Safe Zone)"]
+        Router["Command Router"]
     end
 
     subgraph Extensions [Expansion Modules]
-        Auto[Automation Engine]
-        Speech[Speech Processing<br/>(STT / TTS)]
-        Heal[Self-Healing<br/>(Sentinel)]
+        Auto["Automation Engine"]
+        Speech["Speech Processing<br/>(STT / TTS)"]
+        Heal["Self-Healing<br/>(Sentinel)"]
     end
 
     subgraph Actuators [System Actuators]
-        Shell[Shell Execution]
-        HID[HID Control<br/>(Mouse/Keys)]
-        FileSys[File System]
+        Shell["Shell Execution"]
+        HID["HID Control<br/>(Mouse/Keys)"]
+        FileSys["File System"]
     end
 
     UI --> Server
