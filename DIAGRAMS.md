@@ -144,3 +144,49 @@ sequenceDiagram
     V->>U: TTS "Morning routine initialized."
     deactivate V
 ```
+
+## 4. Functional Block Diagram
+
+Block-level view of system modules, data flow, and control signals.
+
+```mermaid
+graph TB
+    subgraph Controls [Control Plane]
+        direction LR
+        UI[User Interface<br/>(Claude Desktop)]
+        Voice[Voice Command<br/>(Microphone)]
+    end
+
+    subgraph Core [Omnis-Nexus Core]
+        direction TB
+        Server[MCP Server<br/>(Integration Layer)]
+        Validation[Security & Validation<br/>(Safe Zone)]
+        Router[Command Router]
+    end
+
+    subgraph Extensions [Expansion Modules]
+        Auto[Automation Engine]
+        Speech[Speech Processing<br/>(STT / TTS)]
+        Heal[Self-Healing<br/>(Sentinel)]
+    end
+
+    subgraph Actuators [System Actuators]
+        Shell[Shell Execution]
+        HID[HID Control<br/>(Mouse/Keys)]
+        FileSys[File System]
+    end
+
+    UI --> Server
+    Voice --> Speech
+    Speech --> Server
+    
+    Server --> Validation
+    Validation --> Router
+    
+    Router --> Auto
+    Router --> Heal
+    Router --> Actuators
+    
+    Auto --> Actuators
+    Heal --> Actuators
+```
